@@ -3,22 +3,31 @@ import { Link, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
 
-const AddTaskForm = () => {
+const AddTaskForm = ({ addTask }) => {
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
   const [priority, setPriority] = useState("");
   const [description, setDescription] = useState("");
 
   const showOutput = () => {
-    console.log("Task Title: ", task);
-    console.log("Date: ", date);
-    console.log("Priority: ", priority);
-    console.log("Task Description: ", description);
+    const newTask = {
+      title: task,
+      date: date,
+      priority: priority,
+      description: description,
+      completed: false,
+    };
+
+    addTask(newTask);
+    setTask("");
+    setDate("");
+    setPriority("");
+    setDescription("");
   };
   return (
     <>
       <div className="grid place-items-center bg-black-800">
-        <div className="grid mt-14 p-4 w-5/6 mx:auto border border-black rounded-4xl">
+        <div className="grid mt-14 p-4 w-1/3 mx:auto border border-black rounded-4xl">
           <div className="pb-1">
             <p className="text-lg md:text-lg font-medium">Title</p>
             <input
@@ -41,9 +50,36 @@ const AddTaskForm = () => {
           <div className="pb-2">
             <p className="text-lg md:text-lg font-medium">Priority</p>
             <div className="flex gap-14 items-center pt-1">
-              <label><input type="radio" value="Extreme" name="priority" checked={priority === "Extreme"} onChange={(e)=> setPriority(e.target.value)} /> Extreme</label>
-              <label><input type="radio" value="Moderate" name="priority" checked={priority === "Moderate"} onChange={(e)=> setPriority(e.target.value)} /> Moderate</label>
-              <label><input type="radio" value="Low" name="priority" checked={priority === "Low"} onChange={(e)=> setPriority(e.target.value)} /> Low</label>
+              <label>
+                <input
+                  type="radio"
+                  value="Extreme"
+                  name="priority"
+                  checked={priority === "Extreme"}
+                  onChange={(e) => setPriority(e.target.value)}
+                />{" "}
+                Extreme
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="Moderate"
+                  name="priority"
+                  checked={priority === "Moderate"}
+                  onChange={(e) => setPriority(e.target.value)}
+                />{" "}
+                Moderate
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="Low"
+                  name="priority"
+                  checked={priority === "Low"}
+                  onChange={(e) => setPriority(e.target.value)}
+                />{" "}
+                Low
+              </label>
             </div>
           </div>
           <div className="pb-1">
