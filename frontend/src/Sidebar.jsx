@@ -28,6 +28,11 @@ const Sidebar = ({ isOpen, toggleSidebar, setShowSearch }) => {
           <button onClick={()=> setShowSearch(true)}>Search</button>
         </div>
         <div>
+          <NavLink to="/todaytasks" className="">
+            <p>Today Tasks</p>
+          </NavLink>
+        </div>
+        <div>
           <NavLink to="/list" className="">
             <p>Task List</p>
           </NavLink>

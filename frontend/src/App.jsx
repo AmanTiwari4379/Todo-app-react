@@ -10,6 +10,7 @@ import Sidebar from "./Sidebar";
 import { assets } from "./assets/assets";
 import About from "./About";
 import TaskStatus from "./TaskStatus";
+import TodayTasks from "./TodayTasks";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -52,6 +53,7 @@ function App() {
   };
 
   return (
+    
     <div className="flex flex-col dark:bg-black text-black dark:text-white">
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} setShowSearch={setShowSearch} />
       <div className="flex p-1">
@@ -71,8 +73,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="*" element={<h1 className="text-center mt-20 text-3xl">404 Not Found</h1>} />
         <Route path="/taskstatus" element={<TaskStatus tasks={tasks} />} />
+        <Route path="/todaytasks" element={<TodayTasks tasks={tasks} />} />
       </Routes>
     </div>
+    
   );
 }
 
