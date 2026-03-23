@@ -2,7 +2,6 @@ import { use, useEffect, useState } from "react";
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import AddTaskForm from "./AddTaskForm";
-import Home from "./Home";
 import Navbar from "./Navbar";
 import TaskList from "./TaskList";
 import Login from "./Login";
@@ -65,7 +64,6 @@ function App() {
       </div>
       {/* <Navbar/> */}
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/task" element={<AddTaskForm addTask={addTask} />} />
         <Route path="/list" element={<TaskList tasks={tasks} setTasks={setTasks}  showSearch={showSearch} setShowSearch={setShowSearch} />} />
         <Route path="/login" element={<Login addUser={addUser} />} />
@@ -73,7 +71,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="*" element={<h1 className="text-center mt-20 text-3xl">404 Not Found</h1>} />
         <Route path="/taskstatus" element={<TaskStatus tasks={tasks} />} />
-        <Route path="/todaytasks" element={<TodayTasks tasks={tasks} />} />
+        <Route path="/" element={<TodayTasks tasks={tasks} />} />
       </Routes>
     </div>
     

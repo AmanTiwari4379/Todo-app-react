@@ -15,11 +15,6 @@ const Sidebar = ({ isOpen, toggleSidebar, setShowSearch }) => {
       </button>
       <ul className="space-y-4 mt-4">
         <div>
-          <NavLink to="/" className="">
-            <p>Home</p>
-          </NavLink>
-        </div>
-        <div>
           <NavLink to="/task" className="">
             <p>Add Task</p>
           </NavLink>
@@ -28,7 +23,7 @@ const Sidebar = ({ isOpen, toggleSidebar, setShowSearch }) => {
           <button onClick={()=> setShowSearch(true)}>Search</button>
         </div>
         <div>
-          <NavLink to="/todaytasks" className="">
+          <NavLink to="/" className="">
             <p>Today Tasks</p>
           </NavLink>
         </div>
