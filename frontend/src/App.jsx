@@ -53,8 +53,8 @@ function App() {
 
   return (
     
-    <div className="flex flex-col dark:bg-black text-black dark:text-white">
-      <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} setShowSearch={setShowSearch} />
+    <div className="flex flex-col bg-grey text-black">
+      <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} showSearch={showSearch} setShowSearch={setShowSearch} />
       <div className="flex p-1">
         <button onClick={toggleSidebar} className="px-4 py-2 rounded">
           <img src={assets.openSidebar} alt="" />

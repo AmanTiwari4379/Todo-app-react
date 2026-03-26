@@ -26,7 +26,6 @@ const TaskList = ({ tasks, setTasks, showSearch, setShowSearch }) => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button onClick={() => setShowSearch(false)}>X</button>
         </div>
       )}
 

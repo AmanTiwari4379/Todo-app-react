@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { assets } from "./assets/assets";
 import { useState } from "react";
 
-const Sidebar = ({ isOpen, toggleSidebar, setShowSearch }) => {
+const Sidebar = ({ isOpen, toggleSidebar,showSearch, setShowSearch }) => {
 
 
   return (
@@ -20,7 +20,7 @@ const Sidebar = ({ isOpen, toggleSidebar, setShowSearch }) => {
           </NavLink>
         </div>
         <div>
-          <button onClick={()=> setShowSearch(true)}>Search</button>
+          <button onClick={()=> setShowSearch(!showSearch)}>Search</button>
         </div>
         <div>
           <NavLink to="/" className="">
