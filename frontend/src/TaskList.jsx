@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from 'react';
 
-const TaskList = ({ tasks, setTasks, showSearch, setShowSearch }) => {
+const TaskList = ({ tasks, setTasks }) => {
   const totalTasks = tasks.length;
   const filteredTasks = tasks.filter((task) =>
     task.title);

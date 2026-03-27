@@ -10,16 +10,14 @@ import { assets } from "./assets/assets";
 import About from "./About";
 import TaskStatus from "./TaskStatus";
 import TodayTasks from "./TodayTasks";
+import SearchBar from "./SearchBar";
 
 function App() {
   const [tasks, setTasks] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [users, setUsers] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const filteredTasks = tasks.filter((task) =>
-    task.title.toLowerCase().includes(searchQuery.toLowerCase()),
-  );
+  
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -63,22 +61,12 @@ function App() {
           <img src={assets.openSidebar} alt="" />
         </button>
       </div>
-      {showSearch && (
-        <div>
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
-      )}
-
+      <SearchBar tasks={tasks} setTasks={setTasks} showSearch={showSearch} setShowSearch={setShowSearch} />
     
       {/* <Navbar/> */}
       <Routes>
         <Route path="/task" element={<AddTaskForm addTask={addTask} />} />
-        <Route path="/list" element={<TaskList tasks={tasks} setTasks={setTasks}  showSearch={showSearch} setShowSearch={setShowSearch} />} />
+        <Route path="/list" element={<TaskList tasks={tasks} setTasks={setTasks} />} />
         <Route path="/login" element={<Login addUser={addUser} />} />
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/about" element={<About />} />
