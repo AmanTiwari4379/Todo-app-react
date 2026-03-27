@@ -5,8 +5,6 @@ const TodayTasks = ({tasks}) => {
   const date = today.toISOString().split('T')[0];
   const totalTasks = tasks.filter((task) => task.date === date ).length;
   const todayTasks = tasks.filter((task) => task.date === date);
-  console.log("This is today's task variable: ",todayTasks);
-  console.log("This is date variable: ",date);
   
   
   return (

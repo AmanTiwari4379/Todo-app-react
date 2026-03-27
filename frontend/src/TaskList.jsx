@@ -2,11 +2,9 @@ import React from "react";
 import { useState } from 'react';
 
 const TaskList = ({ tasks, setTasks, showSearch, setShowSearch }) => {
-  const [searchQuery, setSearchQuery] = useState("");
   const totalTasks = tasks.length;
   const filteredTasks = tasks.filter((task) =>
-    task.title.toLowerCase().includes(searchQuery.toLowerCase()),
-  );
+    task.title);
   
   const taskCompleted  = (index)=>{
     const updatedTasks = tasks.map((task, i) => 
@@ -18,17 +16,7 @@ const TaskList = ({ tasks, setTasks, showSearch, setShowSearch }) => {
   }
   return (
     <div className="flex flex-col items-center justify-center">
-      {showSearch && (
-        <div>
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
-      )}
-
+      
       <p className="pb-8 pt-4">Total Tasks: {totalTasks}</p>
 
       {filteredTasks.map((task, index) => (

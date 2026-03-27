@@ -16,7 +16,10 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [users, setUsers] = useState([]);
-
+  const [searchQuery, setSearchQuery] = useState("");
+  const filteredTasks = tasks.filter((task) =>
+    task.title.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -52,16 +55,26 @@ function App() {
   };
 
   return (
-    
-    <div className="flex flex-col bg-grey text-black">
+    <>
+    <div className="flex flex-col bg-slate-100 h-screen text-black">
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} showSearch={showSearch} setShowSearch={setShowSearch} />
       <div className="flex p-1">
         <button onClick={toggleSidebar} className="px-4 py-2 rounded">
           <img src={assets.openSidebar} alt="" />
         </button>
       </div>
-      <div>
-      </div>
+      {showSearch && (
+        <div>
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+      )}
+
+    
       {/* <Navbar/> */}
       <Routes>
         <Route path="/task" element={<AddTaskForm addTask={addTask} />} />
@@ -74,6 +87,7 @@ function App() {
         <Route path="/" element={<TodayTasks tasks={tasks} />} />
       </Routes>
     </div>
+    </>
     
   );
 }
