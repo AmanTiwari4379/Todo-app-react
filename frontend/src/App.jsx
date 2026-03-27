@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import AddTaskForm from "./AddTaskForm";
@@ -54,7 +54,7 @@ function App() {
 
   return (
     <>
-    <div className="flex flex-col bg-slate-100 h-screen text-black">
+    <div className="flex flex-col h-full text-black">
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} showSearch={showSearch} setShowSearch={setShowSearch} />
       <div className="flex p-1">
         <button onClick={toggleSidebar} className="px-4 py-2 rounded">

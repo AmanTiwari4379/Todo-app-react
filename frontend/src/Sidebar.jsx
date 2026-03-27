@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { assets } from "./assets/assets";
 import { useState } from "react";
 
@@ -19,7 +19,7 @@ const Sidebar = ({ isOpen, toggleSidebar,showSearch, setShowSearch }) => {
           </NavLink>
         </div>
         <div>
-          <button onClick={()=> setShowSearch(!showSearch)}>Search</button>
+          <button onClick={()=> setShowSearch(true)}>Search</button>
         </div>
         <div>
           <NavLink to="/" className="">
@@ -34,11 +34,6 @@ const Sidebar = ({ isOpen, toggleSidebar,showSearch, setShowSearch }) => {
         <div>
           <NavLink to='/taskstatus' className="">
             <p>Task Status</p>
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to="/login" className="">
-            <p>Login</p>
           </NavLink>
         </div>
       </ul>
