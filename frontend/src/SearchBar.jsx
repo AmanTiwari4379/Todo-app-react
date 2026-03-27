@@ -41,7 +41,7 @@ const SearchBar = ({ tasks, showSearch, setShowSearch }) => {
           onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full p-3 outline-none border-b"
         />
-
+{searchQuery.trim() !== "" && (
         <div className="max-h-[300px] overflow-y-auto">
           {filteredTasks.map((task, index) => (
             <div key={index}>
@@ -51,6 +51,7 @@ const SearchBar = ({ tasks, showSearch, setShowSearch }) => {
             </div>
           ))}
         </div>
+      )}
       </div>
     </div>,
     document.body,
