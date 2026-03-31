@@ -11,6 +11,7 @@ const AddTaskForm = ({ addTask }) => {
 
   const showOutput = () => {
     const newTask = {
+      id: Date.now(),
       title: task,
       date: date,
       priority: priority,
@@ -23,6 +24,7 @@ const AddTaskForm = ({ addTask }) => {
     setDate("");
     setPriority("");
     setDescription("");
+    console.log(newTask);
   };
   return (
     <>

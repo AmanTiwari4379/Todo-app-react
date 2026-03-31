@@ -4,6 +4,7 @@ import dark from './dark-mode.png'
 import light from './light-mode.png'
 import openSidebar from './open-sidebar.png'
 import closeSidebar from './close-sidebar.png'
+import deleteImg from './delete.png'
 
 export const assets = {
     icons8,
@@ -11,5 +12,6 @@ export const assets = {
     dark,
     light,
     openSidebar,
-    closeSidebar
+    closeSidebar,
+    deleteImg
 }
