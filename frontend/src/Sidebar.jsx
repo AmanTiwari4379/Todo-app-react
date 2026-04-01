@@ -14,7 +14,7 @@ const Sidebar = ({ isOpen, toggleSidebar,showSearch, setShowSearch }) => {
       </button>
       <ul className="space-y-4 mt-4">
         <div>
-          <NavLink to="/task" className="">
+          <NavLink to="/addtask" className="">
             <p>Add Task</p>
           </NavLink>
         </div>

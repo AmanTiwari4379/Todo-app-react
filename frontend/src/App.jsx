@@ -65,7 +65,7 @@ function App() {
     
       {/* <Navbar/> */}
       <Routes>
-        <Route path="/task" element={<AddTaskForm addTask={addTask} />} />
+        <Route path="/addtask" element={<AddTaskForm addTask={addTask} />} />
         <Route path="/list" element={<TaskList tasks={tasks} setTasks={setTasks} />} />
         <Route path="/login" element={<Login addUser={addUser} />} />
         <Route path="/sidebar" element={<Sidebar />} />
