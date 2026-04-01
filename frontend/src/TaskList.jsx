@@ -35,7 +35,7 @@ const TaskList = ({ tasks, setTasks }) => {
           <p>Priority : {task.priority}</p>
           <p>Description : {task.description}</p>
           <p>Completed : <input type="checkbox" checked={task.completed || false} onChange={() => taskCompleted(index)}/></p>
-          <button className="float-right" onClick={()=> deleteTask(index)}>
+          <button className="float-right" onClick={()=> deleteTask(task.id)}>
           <img src={assets.deleteImg} alt="" />
           </button>
         </div>
