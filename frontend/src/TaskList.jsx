@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from 'react';
 import { assets } from "./assets/assets";
 
 const TaskList = ({ tasks, setTasks }) => {
   const totalTasks = tasks.length;
+  const [todos, setTodos] = useState([]);
+
+  useEffect(()=>{
+    fetch("http://localhost:5000/api/todos")
+    .then(res => res.json())
+    .then(data => setTodos(data));
+  },[]);
+
   const deleteTask = (id)=> {
     const updateTasks = tasks.filter(task => task.id !== id);
     setTasks(updateTasks);
@@ -24,6 +32,12 @@ const TaskList = ({ tasks, setTasks }) => {
     <div className="flex flex-col items-center justify-center">
       
       <p className="pb-8 pt-4">Total Tasks: {totalTasks}</p>
+
+      <div>
+        {todos.map(todo =>(
+          <p key={todo.id}>{todo.text}</p>
+        ))}
+      </div>
 
       {filteredTasks.map((task, index) => (
         <div
